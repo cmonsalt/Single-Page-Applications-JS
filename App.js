@@ -1,6 +1,6 @@
 import api from "./app/helpers/wp_api.js";
 import { ajax } from "./app/helpers/ajax.js";
-import { Title } from "./app/components/Title.js";
+import { Header } from "./app/components/Header.js";
 import { Loader } from "./app/components/Loader.js";
 
 export function App() {
@@ -18,6 +18,6 @@ export function App() {
   //   },
   // });
   const $root = document.getElementById("root");
-  $root.appendChild(Title());
   $root.appendChild(Loader());
+  $root.appendChild(Header());
 }
