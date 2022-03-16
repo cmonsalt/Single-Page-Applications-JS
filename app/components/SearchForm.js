@@ -4,7 +4,7 @@ export function SearchForm() {
   $input.type = "search";
   $input.name = "search";
   $input.placeholder = "Buscar...";
-  $form.classList.add("form-search");
+  $form.classList.add("search-form");
   $form.appendChild($input);
   return $form;
 }

@@ -1,9 +1,7 @@
-import api from "./app/helpers/wp_api.js";
-import { ajax } from "./app/helpers/ajax.js";
 import { Header } from "./app/components/Header.js";
 import { Loader } from "./app/components/Loader.js";
-import { Posts } from "./app/components/Posts.js";
-import { PostCard } from "./app/components/PostCard.js";
+import { Main } from "./app/components/Main.js";
+import { Router } from "./app/components/Router.js";
 
 export function App() {
   // document.getElementById("root").innerHTML = `<h1>Bienvenidos a todos</h1>`;
@@ -20,20 +18,9 @@ export function App() {
   //   },
   // });
   const $root = document.getElementById("root");
+  $root.innerHTML = null;
   $root.appendChild(Header());
-  $root.appendChild(Posts());
+  $root.appendChild(Main());
   $root.appendChild(Loader());
-
-  ajax({
-    url: api.POST,
-    cbSuccess: (posts) => {
-      console.log(posts);
-      let html = "";
-      posts.forEach((post) => {
-        html += PostCard(post);
-        document.querySelector(".loader").style.display = "none";
-        document.getElementById("posts").innerHTML = html;
-      });
-    },
-  });
+  Router();
 }
