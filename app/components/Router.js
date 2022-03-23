@@ -1,5 +1,6 @@
 import { ajax } from "../helpers/ajax.js";
 import api from "../helpers/wp_api.js";
+import { ContactForm } from "./ContactForm.js";
 import { Post } from "./Post.js";
 import { PostCard } from "./PostCard.js";
 import { SearchCard } from "./SearchCard.js";
@@ -47,7 +48,7 @@ export async function Router() {
       },
     });
   } else if (hash === "#/contacto") {
-    document.getElementById("main").innerHTML = `<h2>Sección de Contacto</h2>`;
+    document.getElementById("main").appendChild(ContactForm());
   } else {
     await ajax({
       url: `${api.POST}/${localStorage.getItem("wpPostId")}`,
